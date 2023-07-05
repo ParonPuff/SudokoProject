@@ -54,13 +54,25 @@ Cell *get_cell_min_possibilities(Board *board);
 
 /**
  * @brief given a cell this function will return one of the possible values of that cell. If this function
- * is called again the function will return a new possibiliy
+ * is called again the function will return a new possibiliy. If there are no remaining posibilites 0 will be returned
  * 
  * @param cell 
  * @return int 
  */
 int get_possibility(Cell *cell);
 
+/**
+ * @brief prints the board in its current state
+ * 
+ * @param board 
+ */
+void print_board(Board *board);
 
+/**
+ * @brief deallocates the recources allocated to the board
+ * 
+ * @param board 
+ */
+void destroy_board(Board *board);
 
 #endif
