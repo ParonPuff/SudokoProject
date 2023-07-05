@@ -13,7 +13,7 @@ typedef struct cell Cell;
  * @param board a file containing a description for a file
  * @return Board* a pointer to board object
  */
-Board *make_board_from_file(FILE *board);
+Board *make_board_from_file(FILE *boardFile);
 
 /**
  * @brief given a board, a cell and a value this function 
