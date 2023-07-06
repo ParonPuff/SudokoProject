@@ -1,22 +1,24 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "board.h"
+
 
 Board *solve_board(Board *board);
 
-int main(int argc, char *argv){
+int main(int argc, char *argv[]){
     if(argc != 2){
         return 1;
     }
     
     FILE *fp = fopen(argv[1],"r");
 
-    if(fp = NULL){
+    if(fp == NULL){
         return 1;
     }
 
     Board *board = make_board_from_file(fp);
     fclose(fp);
-
+    print_board(board);
     if(!board_is_valid(board)){
         printf("The given board is not valid\n");
         destroy_board(board);
@@ -39,7 +41,7 @@ int main(int argc, char *argv){
 }
 
 Board *solve_board(Board *board){
-    if(board_is_filled(board) && board_is_valid(board));
+    if(board_is_filled(board) && board_is_valid(board))
         return board;
 
     Cell *minCell = get_cell_min_possibilities(board);
@@ -47,7 +49,7 @@ Board *solve_board(Board *board){
     int consideredValue = get_possibility(minCell);
 
     do{
-        Board *consideredBoard = set_cell(board,minCell,consideredBoard);
+        Board *consideredBoard = set_cell(board,minCell,consideredValue);
 
         if(board_is_valid(consideredBoard)){
             Board *result = solve_board(consideredBoard);
